@@ -10,13 +10,12 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const storedName = localStorage.getItem("fullName") || "User";
-    setName(storedName);
+    const currentUser = auth.currentUser;
+    setName(currentUser?.displayName || "User");
   }, []);
 
   const handleLogout = async () => {
     await signOut(auth);
-    localStorage.removeItem("fullName");
     router.push("/login");
   };
 
