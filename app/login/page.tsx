@@ -15,7 +15,7 @@ export default function Login() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       localStorage.setItem("fullName", fullName);
-      router.push("/");
+      router.push("/home");
     } catch (error) {
       alert("Error: " + (error as any).message);
     }
@@ -24,7 +24,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      router.push("/home");
     } catch (error) {
       alert("Error: " + (error as any).message);
     }
